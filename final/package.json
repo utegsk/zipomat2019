@@ -1,0 +1,27 @@
+{
+  "name": "zipomat",
+  "version": "1.0.0",
+  "description": "My divine Nuxt.js project",
+  "author": "UTEG",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/dotenv": "^1.3.0",    
+    "cross-env": "^5.2.0",
+    "firebase": "^5.9.2",
+    "nuxt": "^2.3.4",
+    "vue-firestore": "^0.3.21",
+    "vuetify": "^1.3.14",
+    "vuetify-loader": "^1.0.8"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2"
+  }
+}
