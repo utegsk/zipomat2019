@@ -11,7 +11,7 @@
             <img :src="user.photoURL">
           </v-avatar>
           {{user.displayName}}
-          <v-btn @click="logout">Logout</v-btn>
+          <v-btn>Logout</v-btn>
         </div>
         <v-list two-line>
           <template v-for="(item, index) in messages">
@@ -41,8 +41,6 @@
 
 <script>
 import Logo from "~/components/Logo.vue";
-import firebase, { fireDb } from "@/plugins/firebase";
-import { mapGetters } from "vuex";
 
 export default {
   components: {
@@ -50,43 +48,33 @@ export default {
   },
   data: function() {
     return {
-      messages: []
+      messages: [
+        {
+          id: 1,
+          avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
+          author: 'Janko Hraško',
+          message: 'Správa jedna'
+        },
+        {
+          id: 2,
+          avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
+          author: 'Katka Matka',
+          message: 'Správa dva'
+        },
+        {
+          id: 3,
+          avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
+          author: 'Petrík Svetrík',
+          message: 'Správa tri'
+        }
+      ],
+      user: {
+        uid: 'xxx',
+        photoURL: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
+        displayName: 'Janko Hraško'
+      }
     };
-  },
-  firestore() {
-    return {
-      messages: fireDb.collection("messages").orderBy("created", "desc"),
-      objects: true
-    };
-  },
-  created() {
-    firebase.auth().onAuthStateChanged(user => {
-      this.$store.dispatch("saveUser", user);
-    });
-  },
-  computed: {
-    ...mapGetters({
-      user: "getUser"
-    })
-  },
-  methods: {
-    googleLogin() {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(provider);
-    },
-    twitterLogin() {
-      const provider = new firebase.auth.TwitterAuthProvider();
-      firebase.auth().signInWithPopup(provider);
-    },
-    facebookLogin() {
-      const provider = new firebase.auth.FacebookAuthProvider();
-      firebase.auth().signInWithPopup(provider);
-    },
-    logout() {
-      firebase.auth().signOut();
-      this.$store.dispatch("user/saveUser", null);
-    }
-  }
+  }  
 };
 </script>
 <style>
