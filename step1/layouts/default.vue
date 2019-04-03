@@ -28,11 +28,13 @@ export default {
       clipped: true,
       drawer: false,
       fixed: false,     
-      title: "Žipomat 2019",
-      user: {
-        uid: 'xxxx'
-      }
+      title: "Žipomat 2019"      
     }
+  },
+  computed: {
+    ...mapGetters({
+      user: 'getUser'
+    })
   },
   methods: {
     sendMessage: function() {

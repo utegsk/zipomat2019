@@ -1,7 +1,7 @@
 {
-  "name": "zipomat2019",
+  "name": "zipomat",
   "version": "1.0.0",
-  "description": "My dandy Nuxt.js project",
+  "description": "My divine Nuxt.js project",
   "author": "UTEG",
   "private": true,
   "scripts": {
@@ -11,8 +11,11 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/dotenv": "^1.3.0",    
     "cross-env": "^5.2.0",
+    "firebase": "^5.9.2",
     "nuxt": "^2.3.4",
+    "vue-firestore": "^0.3.21",
     "vuetify": "^1.3.14",
     "vuetify-loader": "^1.0.8"
   },

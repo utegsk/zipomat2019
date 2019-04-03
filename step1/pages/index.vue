@@ -41,6 +41,7 @@
 
 <script>
 import Logo from "~/components/Logo.vue";
+import { mapGetters } from "vuex";
 
 export default {
   components: {
@@ -67,14 +68,14 @@ export default {
           author: 'Petrík Svetrík',
           message: 'Správa tri'
         }
-      ],
-      user: {
-        uid: 'xxx',
-        photoURL: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-        displayName: 'Janko Hraško'
-      }
+      ]      
     };
-  }  
+  },
+  computed: {
+    ...mapGetters({
+      user: "getUser"
+    })
+  },  
 };
 </script>
 <style>

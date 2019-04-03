@@ -1,8 +1,12 @@
-
+// import firebase from "@/plugins/firebase";
 export const strict = false
 
 export const state = () => ({
-  user: {}
+  user: {
+    uid: 'xxx',
+    photoURL: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
+    displayName: 'Janko Hraško'
+  }
 })
 
 export const getters = {
